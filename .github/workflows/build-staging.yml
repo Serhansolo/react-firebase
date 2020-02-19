@@ -9,7 +9,7 @@ jobs:
   build:
     name: Building Project
 
-    runs-on: macos-latest
+    runs-on: ubunto-latest
 
     steps:
     - uses: actions/checkout@v2
