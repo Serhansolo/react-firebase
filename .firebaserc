@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "production": "react-firebase-prod-23a42",
+    "staging": "react-firebase-stag"
+  }
+}
