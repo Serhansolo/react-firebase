@@ -9,10 +9,14 @@ jobs:
   build:
     name: Building Project
 
-    runs-on: ubunto-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Build React App and deploy to firebase hosting
-      run: yarn deploy:stag
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: yarn
+    - run: yarn deploy:stag      
 
