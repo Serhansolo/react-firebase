@@ -12,11 +12,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build React App and deploy to firebase hosting
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - run: yarn
-    - run: yarn deploy:stag      
+      - name: Build React App and deploy to firebase hosting
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: yarn
+      - run: yarn deploy:stag      
 
