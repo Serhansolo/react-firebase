@@ -1,4 +1,4 @@
-name: Deploy to Staging environment
+name: Firebase Deploy Staging
 
 on:
   push:
@@ -6,19 +6,20 @@ on:
     - master
     
 jobs:
-  build:
+  firebase-deploy-staging:
     name: Building Project
 
     runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js version 10.x
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-      - name: Build React App and deploy to firebase hosting
-        run: |
-          yarn
-          yarn deploy:stag      
-
+      - run:  yarn
+      - run:  yarn build      
+      - uses: w9jds/firebase-action@v1
+        with:
+          args: deploy --project=staging --only hosting
+        env: 
+          FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
