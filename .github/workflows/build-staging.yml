@@ -12,13 +12,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2.0.0
+      - uses: actions/setup-node@v1.1.0
         with:
           node-version: '10.x'
       - run:  yarn
       - run:  yarn build      
-      - uses: w9jds/firebase-action@v1
+      - uses: w9jds/firebase-action@v1.3.0
         with:
           args: deploy --project=staging --only hosting
         env: 
