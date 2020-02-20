@@ -3,8 +3,8 @@ name: Firebase Deploy Production
 on:
   push:
     tags:
-    - 'v*'
-    
+      - "v*"
+
 jobs:
   firebase-deploy-staging:
     name: Building Project
@@ -15,11 +15,11 @@ jobs:
       - uses: actions/checkout@v2.0.0
       - uses: actions/setup-node@v1.1.0
         with:
-          node-version: '10.x'
-      - run:  yarn
-      - run:  yarn build      
+          node-version: "10.x"
+      - run: yarn
+      - run: yarn build
       - uses: w9jds/firebase-action@v1.3.0
         with:
-          args: deploy --project=staging --only hosting
-        env: 
+          args: deploy --project=production --only hosting
+        env:
           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
